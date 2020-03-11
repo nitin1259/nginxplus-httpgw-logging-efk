@@ -1,0 +1,12 @@
+sample-apps/java-helloworld/build
+sample-apps/java-helloworld/.idea
+sample-apps/java-helloworld/.gradle
+sample-apps/auth-server
+sample-apps/oauth2-resource-server
+docker-logs-elk
+efk-old
+*.key
+*.pem
+*.crt
+*.project
+*.setting

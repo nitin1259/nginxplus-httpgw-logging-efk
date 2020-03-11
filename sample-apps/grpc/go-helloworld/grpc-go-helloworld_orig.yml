@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-go-helloworld
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: grpc-go-helloworld
+  template:
+    metadata:
+      labels:
+        run: grpc-go-helloworld
+    spec:
+      containers:
+      - name: grpc-go-helloworld
+        image: grpc-go-helloworld
+        imagePullPolicy: Never
+        resources:
+            limits:
+              memory: 512M
+              cpu: 250m
+            requests:
+              memory: 256Mi
+              cpu: 250m
+        ports:
+        - containerPort: 50051 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-go-helloworld
+  namespace: default
+spec:
+  ports:
+    - port: 50051 
+      protocol: TCP
+      targetPort: 50051
+  selector:
+    run: grpc-go-helloworld
+  sessionAffinity: None
+  type: ClusterIP

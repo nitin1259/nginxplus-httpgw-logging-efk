@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fltd
+spec:
+  selector:
+    matchLabels:
+      component: fltd
+  template:
+    metadata:
+      labels:
+        component: fltd
+    spec:
+      containers:
+      - name: fltd
+        image: fltd
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 1514
+          name: flt
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fltd
+  namespace: default
+  labels:
+    service: fltd
+spec:
+  type: NodePort
+  selector:
+    component: fltd
+  ports:
+  - port: 1514
+    targetPort: 1514
+    protocol: UDP

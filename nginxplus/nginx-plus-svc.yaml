@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxplus-svc 
+  namespace: default
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+      name: http
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      name: http-alt
+  selector:
+    app: nginxplus 
+  sessionAffinity: None
+  type: NodePort

@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: http-ingress
+spec:
+  tls:
+  - hosts:
+    - ingress.example.com
+    secretName: grpc-secret
+  rules:
+  - host: ingress.example.com
+    http:
+      paths:
+      - path: /webapp
+        backend:
+          serviceName: webapp-svc
+          servicePort: 80
+      - path: /greeting
+        backend:
+          serviceName: java-helloworld 
+          servicePort: 8080
+

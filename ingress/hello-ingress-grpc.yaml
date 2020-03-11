@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-ingress-grpc
+  annotations:
+    # Note that gRPC services must be specified as backend services.
+    nginx.ingress.kubernetes.io/grpc-backend: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: grpc.example.com
+    http:
+      paths:
+      - path: /helloworld
+        backend:
+          serviceName: grpc-go-helloworld
+          servicePort: 50051
+      - path: /routeguide
+        backend:
+          serviceName: grpc-python-routeguide
+          servicePort: 50051
