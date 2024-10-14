@@ -3,6 +3,7 @@
 eval $(minikube docker-env)
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
+# path of nginx image
 cd "$parent_path/nginxplus/nginxplus-img"
 source create-image.sh
 
