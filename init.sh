@@ -11,6 +11,7 @@ source create-image.sh
 cd "$parent_path/sample-apps/java-helloworld"
 source createImage.sh
 
+# path for go app 
 cd "$parent_path/sample-apps/grpc/go-helloworld"
 source build_image.sh
 
