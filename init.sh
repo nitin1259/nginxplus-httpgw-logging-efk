@@ -15,5 +15,6 @@ source createImage.sh
 cd "$parent_path/sample-apps/grpc/go-helloworld"
 source build_image.sh
 
+# path for fluendd 
 cd "$parent_path/efk/fluentd"
 source build-image.sh
