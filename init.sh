@@ -7,7 +7,7 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path/nginxplus/nginxplus-img"
 source create-image.sh
 
-# path of app image
+# path of java app image
 cd "$parent_path/sample-apps/java-helloworld"
 source createImage.sh
 
