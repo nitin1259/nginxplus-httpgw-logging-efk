@@ -3,8 +3,11 @@
 This is for capture the logs in nginxplus and forward it to fluentd to ES in kubernates env
 
 ### Prerequisite 
+
     - docker installed
+    
     - minikube installed
+    
     - trail or Licensed version of Nginx plus
 
 
