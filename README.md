@@ -2,13 +2,11 @@
 
 This is for capture the logs in nginxplus and forward it to fluentd to ES in kubernates env
 
-### Prerequisite 
+### Prerequisite
 
-    - docker installed
-    
-    - minikube installed
-    
-    - trail or Licensed version of Nginx plus
+1. docker installed
+2. minikube installed
+3. trail or Licensed version of Nginx plus
 
 
 ### Start monitoring the application
